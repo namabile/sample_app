@@ -19,7 +19,15 @@ end
 gem 'jquery-rails', '2.0.0'
 
 group :test do
+	gem 'rspec-rails', '2.8.1'
 	gem 'capybara', '1.1.2'
+	gem 'guard-rspec', '0.5.5'
+	gem 'rb-fchange', '0.0.5'
+  	gem 'rb-notifu', '0.0.4'
+  	gem 'win32console', '1.3.0'
+  	gem 'guard-spork', '0.3.2'
+  	gem 'spork', '~> 0.9.0.rc'
+
 end
 
 group :production do
