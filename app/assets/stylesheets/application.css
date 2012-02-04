@@ -10,4 +10,13 @@
  *
  *= require_self
  *= require_tree .
+
 */
+
+//= require blueprint/screen.css
+//= require blueprint/print.css
+//= require blueprint/ie.css
+//= require application
+//= require layout.css.scss
+//= require static_pages.css.scss
+//= require users.css.scss
