@@ -9,4 +9,12 @@ module ApplicationHelper
 			"#{base_title} | #{page_title}"
 		end
 	end
+
+	#Returns the logo image link
+	def logo
+		image = "http://railstutorial.org/images/sample_app/logo.png"
+		alt = "Sample App"
+		css_class = 'round'
+		image_tag(image, alt: alt, class: css_class)
+	end
 end
