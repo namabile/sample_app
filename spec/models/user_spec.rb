@@ -74,10 +74,10 @@ describe User do
   	it { should_not be_valid }
   end
 
-  describe "when passwords do not match" do
-  	before { @user.password_confirmation = "mismatch" }
-  	it { should_not be_valid }
-  end
+  describe "when password doesn't match confirmation" do
+    before { @user.password_confirmation = "mismatch" }
+    it { should_not be_valid }
+end
 
   describe "return value of authenticate method" do
   	before { @user.save }
@@ -93,5 +93,10 @@ describe User do
     	it { should_not == user_for_invalid_password }
     	specify { user_for_invalid_password.should be_false }
   	end
+  end
+
+  describe "with a password that's too short" do
+    before { @user.password = @user.password_confirmation = "a"*5 }
+    it { should be_invalid }
   end
 end

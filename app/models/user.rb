@@ -11,8 +11,8 @@
 #
 
 class User < ActiveRecord::Base
-	attr_accessor :password, :password_confirmation
   	attr_accessible :name, :email, :password, :password_confirmation
+  	has_secure_password
 
 	validates :name, presence: true, length: { maximum: 50 }
 	valid_email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
 		uniqueness: { case_sensitive: false }
 	validates :password, presence: true
 	validates :password_confirmation, presence: true
+	validates :password, length: { minimum: 6 }
 
 	rescue ActiveRecord::StatementInvalid
     # Handle duplicate email addresses gracefully by redirecting.
