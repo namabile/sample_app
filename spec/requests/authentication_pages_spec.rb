@@ -31,7 +31,12 @@ describe "AuthenticationPages" do
 			it { should have_selector("title", text: user.name) }
 			it { should have_link("Profile", href: user_path(user)) }
 			it { should have_link("Sign out", href: signout_path) }
-			it { should have_link("Sign in", href: signin_path) }
+			it { should_not have_link("Sign in", href: signin_path) }
+
+			describe "followed by sign out" do
+				before { click_link "Sign out" }
+				it { should have_link("Sign in") }
+			end
 		end
 	end
 end
